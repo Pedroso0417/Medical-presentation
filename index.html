@@ -11,12 +11,12 @@
       background-color: #f4f4f4;
     }
 
-    /* Cover photo with text overlay */
+    /* Cover section */
     .cover {
       position: relative;
       width: 100%;
       height: 250px;
-      background-image: url('https://via.placeholder.com/1200x250?text='); /* Replace with your image */
+      background-image: url('./image/logo-1.jpg');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -26,7 +26,7 @@
 
     .cover-text {
       position: absolute;
-      color: black;
+      color: white;
       font-size: 36px;
       font-weight: bold;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
@@ -36,34 +36,31 @@
       padding: 30px;
     }
 
+    .section {
+      margin-bottom: 30px;
+    }
+
     .toggle-button {
       cursor: pointer;
       color: #007bff;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: bold;
       text-decoration: underline;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       display: inline-block;
     }
 
-    #services-content {
+    .services-content {
       display: none;
       background-color: #ffffff;
       border-left: 4px solid #007bff;
       padding: 20px;
-      margin-top: 15px;
+      margin-top: 10px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
 
-    .category-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 15px;
-      color: #333;
-    }
-
     ul {
-      margin: 8px 0 20px 25px;
+      margin: 8px 0 0 25px;
       color: #555;
     }
   </style>
@@ -78,40 +75,88 @@
   <!-- Main Content -->
   <div class="container">
 
-    <!-- Clickable title -->
-    <div class="toggle-button" onclick="toggleServices()">
-      View Details
+    <!-- Section A: Laboratory -->
+    <div class="section">
+      <div class="toggle-button" onclick="toggleSection('lab-section')">
+        A. Laboratory - Level III
+      </div>
+      <div id="lab-section" class="services-content">
+        <ul>
+          <li>Clinical Microscopy</li>
+          <li>Chemistry</li>
+          <li>Immu-Serology</li>
+          <li>Microbiology</li>
+          <li>Histopathology</li>
+          <li>Blood Bank</li>
+          <li>Drug Testing</li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Hidden Services Content -->
-    <div id="services-content">
-      <div class="category-title">A. Laboratory - Level III</div>
-      <ul>
-        <li>Clinical Microscopy</li>
-        <li>Chemistry</li>
-        <li>Immu-Serology</li>
-        <li>Microbiology</li>
-        <li>Histopathology</li>
-        <li>Blood Bank</li>
-        <li>Drug Testing</li>
-      </ul>
+    <!-- Section B: Radiology -->
+    <div class="section">
+      <div class="toggle-button" onclick="toggleSection('radiology-section')">
+        B. Radiology - Level II
+      </div>
+      <div id="radiology-section" class="services-content">
+        <ul>
+          <li>General Ultrasound</li>
+          <li>Digital Mammogram</li>
+          <li>Interventional Radiography (Guided Biopsy)</li>
+          <li>C-ARM</li>
+        </ul>
+      </div>
+    </div>
 
-      <div class="category-title">B. Radiology - Level II</div>
-      <ul>
-        <li>General Ultrasound</li>
-        <li>Digital Mammogram</li>
-        <li>Interventional Radiography (Guided Biopsy)</li>
-        <li>C-ARM</li>
-      </ul>
+    <!-- Section C: Pulmonary -->
+    <div class="section">
+      <div class="toggle-button" onclick="toggleSection('pulmonary-section')">
+        C. Pulmonary
+      </div>
+      <div id="pulmonary-section" class="services-content">
+        <ul>
+          <li>Pulmonary Function Test</li>
+          <li>Incentive Spirometry</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Section D: Cardiology -->
+    <div class="section">
+      <div class="toggle-button" onclick="toggleSection('cardiology-section')">
+        D. Cardiology
+      </div>
+      <div id="cardiology-section" class="services-content">
+        <ul>
+          <li>24-HR Holter Monitoring</li>
+          <li>2D Echo with Doppler (Adult)</li>
+          <li>2D Echo with Doppler (Pedia)</li>
+          <li>24-HR Ambulatory BP Monitoring</li>
+          <li>Arterial Duplex (Lower Ext.)</li>
+          <li>Arterial Duplex (Upper Ext.)</li>
+          <li>AV Mapping (Both)</li>
+          <li>Arteriovenous Duplex (Lower Ext.)</li>
+          <li>Arteriovenous Duplex (Upper Ext.)</li>
+          <li>Carotid Duplex</li>
+          <li>Dobutamine Stress Echo</li>
+          <li>ECG</li>
+          <li>Evaluation of AV Shunt</li>
+          <li>Exercise Stress Echo</li>
+          <li>Treadmill Stress Test</li>
+          <li>Venous Duplex (Lower Ext.)</li>
+          <li>Venous Duplex (Upper Ext.)</li>
+          <li>Bubble Study</li>
+        </ul>
+      </div>
     </div>
 
   </div>
 
   <!-- JavaScript -->
   <script>
-    function toggleServices() {
-      const content = document.getElementById("services-content");
-      content.style.display = content.style.display === "none" ? "block" : "none";
+    function toggleSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.style.display = section.style.display === 'none' ? 'block' : 'none';
     }
   </script>
 
