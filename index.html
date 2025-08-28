@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ancillary Services</title>
+  <title>Ancillary Services | ARC Hospitals</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,11 +11,11 @@
       background-color: #f4f4f4;
     }
 
-    /* Cover section */
+    /* COVER SECTION WITH BACKGROUND IMAGE */
     .cover {
       position: relative;
       width: 100%;
-      height: 250px;
+      height: 300px;
       background-image: url('./image/logo-1.jpg');
       background-size: cover;
       background-position: center;
@@ -24,22 +24,45 @@
       justify-content: center;
     }
 
-    .cover-text {
+    /* Optional semi-transparent overlay for contrast */
+    .cover::before {
+      content: '';
       position: absolute;
-      color: white;
-      font-size: 36px;
-      font-weight: bold;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
     }
 
+    /* Logo overlay, centered and above the overlay */
+    .logo-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-height: 120px;
+      z-index: 2;
+    }
+
+    /* Text overlay, positioned at the bottom center */
+    .cover-text {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-size: 36px;
+      font-weight: bold;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+      z-index: 2;
+    }
+
+    /* MAIN CONTENT & TOGGLES */
     .container {
       padding: 30px;
     }
-
     .section {
       margin-bottom: 30px;
     }
-
     .toggle-button {
       cursor: pointer;
       color: #007bff;
@@ -49,7 +72,6 @@
       margin-bottom: 10px;
       display: inline-block;
     }
-
     .services-content {
       display: none;
       background-color: #ffffff;
@@ -58,7 +80,6 @@
       margin-top: 10px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
-
     ul {
       margin: 8px 0 0 25px;
       color: #555;
@@ -67,24 +88,23 @@
 </head>
 <body>
 
-  <!-- Cover Photo Section -->
+  <!-- Cover Section with Background, Logo, and Text Overlay -->
   <div class="cover">
+    <img src="./image/logo.png" alt="ARC Hospitals Logo" class="logo-overlay">
     <div class="cover-text">Ancillary Services</div>
   </div>
 
-  <!-- Main Content -->
+  <!-- Main Content with Toggleable Sections -->
   <div class="container">
-
-    <!-- Section A: Laboratory -->
     <div class="section">
       <div class="toggle-button" onclick="toggleSection('lab-section')">
-        A. Laboratory - Level III
+        A. Laboratory – Level III
       </div>
       <div id="lab-section" class="services-content">
         <ul>
           <li>Clinical Microscopy</li>
           <li>Chemistry</li>
-          <li>Immu-Serology</li>
+          <li>Immu‑Serology</li>
           <li>Microbiology</li>
           <li>Histopathology</li>
           <li>Blood Bank</li>
@@ -93,22 +113,20 @@
       </div>
     </div>
 
-    <!-- Section B: Radiology -->
     <div class="section">
       <div class="toggle-button" onclick="toggleSection('radiology-section')">
-        B. Radiology - Level II
+        B. Radiology – Level II
       </div>
       <div id="radiology-section" class="services-content">
         <ul>
           <li>General Ultrasound</li>
           <li>Digital Mammogram</li>
           <li>Interventional Radiography (Guided Biopsy)</li>
-          <li>C-ARM</li>
+          <li>C‑ARM</li>
         </ul>
       </div>
     </div>
 
-    <!-- Section C: Pulmonary -->
     <div class="section">
       <div class="toggle-button" onclick="toggleSection('pulmonary-section')">
         C. Pulmonary
@@ -121,17 +139,16 @@
       </div>
     </div>
 
-    <!-- Section D: Cardiology -->
     <div class="section">
       <div class="toggle-button" onclick="toggleSection('cardiology-section')">
         D. Cardiology
       </div>
       <div id="cardiology-section" class="services-content">
         <ul>
-          <li>24-HR Holter Monitoring</li>
+          <li>24‑HR Holter Monitoring</li>
           <li>2D Echo with Doppler (Adult)</li>
           <li>2D Echo with Doppler (Pedia)</li>
-          <li>24-HR Ambulatory BP Monitoring</li>
+          <li>24‑HR Ambulatory BP Monitoring</li>
           <li>Arterial Duplex (Lower Ext.)</li>
           <li>Arterial Duplex (Upper Ext.)</li>
           <li>AV Mapping (Both)</li>
@@ -149,14 +166,13 @@
         </ul>
       </div>
     </div>
-
   </div>
 
-  <!-- JavaScript -->
+  <!-- JavaScript for Toggle Functionality -->
   <script>
     function toggleSection(sectionId) {
       const section = document.getElementById(sectionId);
-      section.style.display = section.style.display === 'none' ? 'block' : 'none';
+      section.style.display = (section.style.display === 'none' || section.style.display === '') ? 'block' : 'none';
     }
   </script>
 
