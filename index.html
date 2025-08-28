@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ancillary Services</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    /* Cover photo with text overlay */
+    .cover {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      background-image: url('https://via.placeholder.com/1200x250?text='); /* Replace with your image */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cover-text {
+      position: absolute;
+      color: black;
+      font-size: 36px;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    .toggle-button {
+      cursor: pointer;
+      color: #007bff;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    #services-content {
+      display: none;
+      background-color: #ffffff;
+      border-left: 4px solid #007bff;
+      padding: 20px;
+      margin-top: 15px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .category-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 15px;
+      color: #333;
+    }
+
+    ul {
+      margin: 8px 0 20px 25px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cover Photo Section -->
+  <div class="cover">
+    <div class="cover-text">Ancillary Services</div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+
+    <!-- Clickable title -->
+    <div class="toggle-button" onclick="toggleServices()">
+      View Details
+    </div>
+
+    <!-- Hidden Services Content -->
+    <div id="services-content">
+      <div class="category-title">A. Laboratory - Level III</div>
+      <ul>
+        <li>Clinical Microscopy</li>
+        <li>Chemistry</li>
+        <li>Immu-Serology</li>
+        <li>Microbiology</li>
+        <li>Histopathology</li>
+        <li>Blood Bank</li>
+        <li>Drug Testing</li>
+      </ul>
+
+      <div class="category-title">B. Radiology - Level II</div>
+      <ul>
+        <li>General Ultrasound</li>
+        <li>Digital Mammogram</li>
+        <li>Interventional Radiography (Guided Biopsy)</li>
+        <li>C-ARM</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleServices() {
+      const content = document.getElementById("services-content");
+      content.style.display = content.style.display === "none" ? "block" : "none";
+    }
+  </script>
+
+</body>
+</html>
